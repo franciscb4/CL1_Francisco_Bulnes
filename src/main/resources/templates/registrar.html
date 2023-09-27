@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="thymeleaf.org">
+	<head>
+	<meta charset="UTF-8">
+<title>Registrar Cliente</title>
+</head>
+<body>
+	<h1>Registrar Cliente</h1>
+	<form th:action="@{/grabar}" th:object="${cliente}">
+		<table>
+			<tr>
+				<td>ID</td>
+				<td><input type="number" th:field="*{idCliente}" required></td>
+			</tr>
+			<tr>
+				<td>NOMBRE</td>
+				<td><input type="text" th:field="*{nombre}" required minlength="3" maxlength="30"></td>
+			</tr>
+			<tr>
+				<td>APELLIDO</td>
+				<td><input type="text" th:field="*{apellido}" required minlength="3" maxlength="30"></td>
+			</tr>
+			<tr>
+				<td>CORREO</td>
+				<td><input type="email" th:field="*{correo}" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"></td>
+			</tr>
+			<tr>
+				<td>FECHA NACIMIENTO</td>
+				<td><input type="text" th:field="*{fechanacimiento}" required pattern="\d{4}-\d{1,2}-\d{1,2}"  placeholder="YYYY-MM-DD"></td>
+			</tr>
+			<tr>
+				<td>DNI</td>
+				<td><input type="number" th:field="*{dni}" required minlength="8" maxlength="8"></td>
+			</tr>
+			<tr>
+				<td>CATEGORIA</td>
+				<td><input type="number" th:field="*{idCategoria}" required></td>
+			</tr>
+		</table>
+		<input type="submit" value="Registrar">
+	</form>
+</body>
+</html>
